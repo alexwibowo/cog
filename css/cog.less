@@ -1,11 +1,14 @@
-@page-width: 800px;
 @page-background: #F2F2F2;
 @page-text-colour: #888888;
 @page-font-size: 14px;
+@border-colour: #CCCCCC;
 
 
 .plain-list{
     list-style: none;
+	li{
+		 padding: 5px 0px 5px 0px;
+	}
 }
 
 .rounded {
@@ -18,7 +21,7 @@ html{
 }
 
 body {
-    width: @page-width;
+//    font-family: 'Lato', sans-serif;
     font-family: 'Cabin', sans-serif;
     margin: 0px auto;
 }
@@ -28,7 +31,9 @@ p{
     font-size: @page-font-size;
 }
 
-h1{
+h1, h2{
+    font-weight: normal;
+    font-family: 'Alegreya SC', serif;
     color: @page-text-colour + #1111111;
 }
 
@@ -37,25 +42,84 @@ h1{
         .plain-list;
     }
 }
+section{
+	border-bottom : 1px @border-colour solid;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
 
-#highlights {
+#highlights  {
+	ul {
+		.plain-list;	
+	}
+	section{
+		border-bottom : none;
+	}
+	article p{
+		font-size: @page-font-size + 2px;
+	}
+	
+	#highlights-articles {
+		padding-left: 25px;
+		border-left: 1px @border-colour solid;
+		min-height: 200px;
+		
+		article {
+			display:none;
+		}
+		
+		article.selected{
+			display:block;
+		}
+	}
+	#highlights-menu {
+		font-size: @page-font-size + 5px;
+		li:hover{
+			cursor:pointer;
+		}
+	}
+}
+
+#news {
+    padding-top: 20px;
     article{
-        .rounded;
+//        .rounded;
         padding:5px;
         height:200px;
+        border-right: 1px @border-colour solid;
 
         header{
-            text-align: center;
+            text-align: left;
+			border-bottom: none;
             h1{
-                font-size: @page-font-size + 5px;
+                font-weight: normal;
+                font-size: @page-font-size + 20px;
             }
+        }
+    }
+}
+
+header {
+    #logo{
+//        float: left;
+//        width: 500px;
+        height: 100px;
+    }
+
+    #title{
+//        float:left;
+        h1{
+            font-size: @page-font-size + 20px;
+        }
+        h2{
+            font-size: @page-font-size + 15px;
         }
     }
 }
 
 footer{
     margin-top:20px;
-    border-color: #CCCCCC;
+    border-color: @border-colour;
     border-style:solid;
     border-width: 1px 0;
     text-align: center;
@@ -63,17 +127,14 @@ footer{
 
 
 nav {
-    display: block;
-    clear:both;
-    margin-bottom:15px;
-
+    text-transform: uppercase;
     ul {
         .plain-list;
 
         li {
             float: left;
             display: inline;
-            padding: 3px 8px 3px 8px;
+            width: 12.5%;
         }
     }
 }
